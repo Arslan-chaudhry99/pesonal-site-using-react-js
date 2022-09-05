@@ -1,0 +1,93 @@
+.size span {
+  font-size: 11px;
+}
+
+.color span {
+  font-size: 11px;
+}
+
+.product-deta {
+  margin-right: 70px;
+}
+
+.gift-card:focus {
+  box-shadow: none;
+}
+
+.pay-button {
+  color: #fff;
+}
+
+.pay-button:hover {
+  color: #fff;
+}
+
+.pay-button:focus {
+  color: #fff;
+  box-shadow: none;
+}
+
+.text-grey {
+  color: #a39f9f;
+}
+
+.qty i {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+}
+
+.minusSign {
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteNow {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.shoingTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.shoingTitle span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.TotalPrice {
+  margin-top: 20px;
+}
+
+.totalItems {
+  margin-top: 20px;
+
+}
+
+.quantityNumber {
+  font-size: 20px;
+}
+
+.productAmount {
+  font-size: 20px;
+  margin: 0px 7px;
+}
+
+.imageandpara {
+  display: flex;
+  flex-direction: column;
+
+}
