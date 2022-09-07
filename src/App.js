@@ -2,7 +2,7 @@ import "./components/style.css";
 import Course from "./Course";
 import Team from "./Team";
 import Contact from "./Contact";
-import Books from "./Books";
+import Books from "./cart/Books";
 import Blog from "./Blog";
 import Home from "./Home";
 import Videos from "./Videos";
@@ -10,7 +10,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Error from "./Error";
 import Main from "./Main";
 import Single from "./Single";
-import Cart from "./Cart";
+import Cart from "./cart/Cart";
+
 function App() {
   return (
     <BrowserRouter>

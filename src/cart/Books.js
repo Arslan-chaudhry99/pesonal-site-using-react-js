@@ -1,15 +1,18 @@
-import React from "react";
-import "./components/book.css";
+import React,{useContext} from "react";
+import "../components/book.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { FaShoppingCart } from "react-icons/fa";
 import { useEffect } from "react";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import  {appContext} from "./context";
 const Books = () => {
+  let a= useContext(appContext)
+  console.log(a);
   const [booksData, setbooksData] = useState([]);
-  const [productData, setproductData] = useState([]);
   let nav = useNavigate();
+  // slider
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -30,6 +33,7 @@ const Books = () => {
   };
   let croser = useRef("");
   let loding = useRef("");
+
   const getJason = async () => {
     try {
       let fea = await fetch(
@@ -42,27 +46,24 @@ const Books = () => {
         }
       });
       setbooksData(itemsData);
-      console.log(itemsData);
+
       if (itemsData) {
         croser.current.style.filter = "blur(0px)";
         loding.current.style.display = "none";
       }
     } catch (error) {
-      alert("server not responding or please check your internet connection.");
       croser.current.style.filter = "blur(0px)";
       loding.current.style.display = "none";
     }
   };
+  // get product data from api
   useEffect(() => {
     getJason();
   }, []);
+  // go to cart button
   const goto = () => {
     nav("/Cart");
   };
-  // local data
-  let placeItem = (obj) => {};
-
-  console.log(productData);
 
   return (
     <>
@@ -123,9 +124,7 @@ const Books = () => {
                             <span
                               class="add-to-cart btn btn-sm"
                               style={{ backgroundColor: "#3EC1D5" }}
-                              onClick={() => {
-                                placeItem(element);
-                              }}
+                              
                             >
                               <span class="txt">
                                 ADD TO CART <FaShoppingCart />

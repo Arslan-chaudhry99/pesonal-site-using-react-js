@@ -36,7 +36,7 @@ const NavElement = () => (
               <Nav.Link style={{ fontSize: "17px" }}>Blog</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/Books">
-              <Nav.Link style={{ fontSize: "17px" }}>Books Shope</Nav.Link>
+              <Nav.Link style={{ fontSize: "17px" }}>Books Shop</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/Cart">
               <Nav.Link style={{ fontSize: "17px" }}>cart</Nav.Link>

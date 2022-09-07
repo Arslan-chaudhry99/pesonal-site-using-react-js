@@ -1,55 +1,47 @@
 import React from "react";
-import "./components/cart.css";
+import { useContext } from "react";
+import "../components/cart.css";
+import { useEffect } from "react";
+import  AppContext  from "./context";
 const Cart = () => {
+const first = useContext(AppContext)
+console.log(first);
   return (
     <>
       <div class="container mt-5 mb-5">
         <div class="d-flex justify-content-center row">
           <div class="col-md-8">
             <div class="p-2 shoingTitle">
-              <h4>Shopping cart</h4>
+              <h4>Shop Now</h4>
               <span class="text-danger">Remove all</span>
             </div>
-            {/* <h3 style={{textAlign:"center"}}>Cart is empety</h3> */}
-            <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded">
+
+            <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded shadow">
               <div class="mr-1 imageandpara">
-                <img
-                  class="rounded"
-                  src="https://i.postimg.cc/260Q01vP/javascript.gif"
-                  width="70"
-                />
-                <span class="font-weight-bold">
-                  What is javascript how it works.what is python
-                </span>
+                <img class="rounded" src="" width="70" />
+                <span class="font-weight-bold">javascript</span>
               </div>
               <div class="d-flex flex-column align-items-center product-details">
                 <div class="d-flex flex-row product-desc"></div>
               </div>
               <div class="d-flex flex-row align-items-center qty">
-                <i class="minusSign shadow">
+                <i class="minusSign border">
                   <i class="bi bi-dash"></i>
                 </i>
-                <span class="text-grey quantityNumber">100</span>
-                <i class="minusSign shadow">
+                <span class="text-grey quantityNumber border px-3">10</span>
+                <i class="minusSign  border">
                   <i class="bi bi-plus"></i>
                 </i>
               </div>
               <div>
-                <span class="text-grey productAmount">$20.00</span>
+                <span class="text-grey productAmount">10$</span>
               </div>
-              <div
-                class="d-flex align-items-center text-dark"
-                style={{
-                  cursor: "pointer",
-                  fontWeight: "900",
-                  fontSize: "15px",
-                }}
-              >
-                <i class="bi bi-x text-danger"></i>
+              <div class="removeItem bg-danger shadow">
+                <i class="bi bi-x text-white"></i>
               </div>
             </div>
 
-            <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+            <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded shadow">
               <input
                 type="text"
                 class="form-control gift-card "
@@ -67,13 +59,13 @@ const Cart = () => {
                 Apply
               </button>
             </div>
-            <div class="totalItems">
-              Total Items: <strong>12</strong>
+            <div class="totalItems ">
+              Total Items: <strong className="shadow">12</strong>
             </div>
             <span class="TotalPrice">
-              Total price: <strong>12$</strong>
+              Total price: <strong className="shadow">12$</strong>
             </span>
-            <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded">
+            <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded ">
               <button
                 class="btn  btn-block btn-sm ml-2 pay-button shadow"
                 type="button"

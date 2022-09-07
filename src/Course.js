@@ -2,7 +2,6 @@ import "./components/style.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 function Course() {
-  
   const arry = [
     {
       category: "html",
@@ -69,7 +68,6 @@ function Course() {
   };
   return (
     <>
-    
       <div id="portfolio" className="portfolio-area area-padding fix">
         <div className="container">
           <div className="row">
@@ -82,7 +80,7 @@ function Course() {
           <div className="row wesome-project-1 fix ">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
               <ul id="portfolio-flters">
-                {btnTitle.map((elelment,index) => {
+                {btnTitle.map((elelment, index) => {
                   return (
                     <>
                       <li
@@ -102,24 +100,23 @@ function Course() {
 
           <div className="row awesome-project-content portfolio-container eas_in ">
             {Data.map((elelment, index) => {
-             
-              const { title, image, description,category } = elelment;
+              const { title, image, description, category } = elelment;
 
               return (
                 <>
-               
-                  <div key={index} className="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item ">
+                  <div
+                    key={index}
+                    className="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item "
+                  >
                     <div className="single-awesome-project shadow">
                       <div className="awesome-img ">
-                        <a href="#">
-                          <img src={image} alt="" />
-                        </a>
+                        <img src={image} alt="" />
                         <div className="add-actions text-center">
                           <div className="project-dec">
                             <a
                               className="portfolio-lightbox"
                               data-gallery="myGallery"
-                              href="assets/img/portfolio/1.jpg"
+                              
                             >
                               <h4>{title}</h4>
                             </a>
@@ -130,21 +127,22 @@ function Course() {
                         <p>{title}</p>
                         <span>{description} </span>
                       </div>
-                      <Link
-                      to={"/videos/"+category}
-                      >
-                      <button className="btn ml-2 mb-2" style={{backgroundColor:"#3EC1D5",color:"white"}}>Watch Now</button>
+                      <Link to={"/videos/" + category}>
+                        <button
+                          className="btn ml-2 mb-2"
+                          style={{ backgroundColor: "#3EC1D5", color: "white" }}
+                        >
+                          Watch Now
+                        </button>
                       </Link>
                     </div>
                   </div>
-                  
                 </>
               );
             })}
           </div>
         </div>
       </div>
-    
     </>
   );
 }

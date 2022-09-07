@@ -78,11 +78,11 @@
 }
 
 .quantityNumber {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .productAmount {
-  font-size: 20px;
+  font-size: 15px;
   margin: 0px 7px;
 }
 
@@ -90,4 +90,18 @@
   display: flex;
   flex-direction: column;
 
+}
+.removeItem{
+  cursor: pointer;
+  
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+ 
+}
+.removeItem i{
+  color: white;
 }
