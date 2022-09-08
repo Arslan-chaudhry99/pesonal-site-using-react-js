@@ -3,7 +3,13 @@ import "../components/cart.css";
 import { useEffect } from "react";
 import { AppContext } from "./context";
 const Cart = () => {
-  const { state ,removeItem} = useContext(AppContext);
+  const { state ,removeItem, increment,decrement,clearAll} = useContext(AppContext);
+  let totalP=0
+
+ state.map((item)=>{
+  totalP += item.price * item.quantity
+   })
+ 
 
   return (
     <>
@@ -12,7 +18,9 @@ const Cart = () => {
           <div class="col-md-8">
             <div class="p-2 shoingTitle">
               <h4>Shop Now</h4>
-              <span class="text-danger">Remove all</span>
+              <span class="text-danger"
+              onClick={()=>{clearAll()}}
+              >Remove all</span>
             </div>
             {state.map((item) => {
               return (
@@ -26,13 +34,19 @@ const Cart = () => {
                       <div class="d-flex flex-row product-desc"></div>
                     </div>
                     <div class="d-flex flex-row align-items-center qty">
-                      <i class="minusSign border">
+                      <i 
+                      class="minusSign border"
+                      onClick={()=>{decrement(item)}}
+                      >
                         <i class="bi bi-dash"></i>
                       </i>
                       <span class="text-grey quantityNumber border px-3">
                         {item.quantity}
                       </span>
-                      <i class="minusSign  border">
+                      <i 
+                      class="minusSign  border"
+                      onClick={()=>{increment(item)}}
+                      >
                         <i class="bi bi-plus"></i>
                       </i>
                     </div>
@@ -69,10 +83,10 @@ const Cart = () => {
               </button>
             </div>
             <div class="totalItems ">
-              Total Items: <strong className="shadow">12</strong>
+              Total Items: <strong className="shadow">{state.length}</strong>
             </div>
             <span class="TotalPrice">
-              Total price: <strong className="shadow">12$</strong>
+              Total price: <strong className="shadow">{`${totalP}$`}</strong>
             </span>
             <div class="d-flex flex-row align-items-center mt-3 p-2 bg-white rounded ">
               <button

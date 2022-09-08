@@ -27,13 +27,31 @@ const AppProvider = ({ children }) => {
       payload:remove
     })
   };
+  let increment=(inc)=>{
+    dispatch({
+      type:"INCREMENT",
+      payload:inc
+    })
+  }
+  let decrement=(dec)=>{
+    dispatch({
+      type:"DECREMENT",
+      payload:dec
+    })
+  }
+  let clearAll=()=>{
+    dispatch({
+      type:"ClearAll",
+      
+    })
+  }
   useEffect(() => {
     localStorage.setItem("product", JSON.stringify(state));
   }, [state]);
 
   return (
     <>
-      <AppContext.Provider value={{ state, removeItem, AddTo }}>
+      <AppContext.Provider value={{ state, removeItem, AddTo, increment,decrement,clearAll }}>
         {children}
       </AppContext.Provider>
     </>
