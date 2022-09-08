@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import "../components/book.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -6,11 +6,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useEffect } from "react";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import  {appContext} from "./context";
+import { AppContext } from "./context";
+import Data from "./Data";
 const Books = () => {
-  let a= useContext(appContext)
-  console.log(a);
-  const [booksData, setbooksData] = useState([]);
+  const {AddTo} = useContext(AppContext);
   let nav = useNavigate();
   // slider
   const responsive = {
@@ -34,32 +33,6 @@ const Books = () => {
   let croser = useRef("");
   let loding = useRef("");
 
-  const getJason = async () => {
-    try {
-      let fea = await fetch(
-        "https://script.google.com/macros/s/AKfycbxFCG7S-kjncQZwvcMnqq4wXoBAX8ecH1zkY2bLP7EE-YHlnKbiJ3RUuHtWLe6sIK30Kw/exec"
-      );
-      let acData = await fea.json();
-      let itemsData = acData.shop.filter((element) => {
-        if (element.name) {
-          return element;
-        }
-      });
-      setbooksData(itemsData);
-
-      if (itemsData) {
-        croser.current.style.filter = "blur(0px)";
-        loding.current.style.display = "none";
-      }
-    } catch (error) {
-      croser.current.style.filter = "blur(0px)";
-      loding.current.style.display = "none";
-    }
-  };
-  // get product data from api
-  useEffect(() => {
-    getJason();
-  }, []);
   // go to cart button
   const goto = () => {
     nav("/Cart");
@@ -86,7 +59,7 @@ const Books = () => {
         </div>
 
         <Carousel responsive={responsive} className="container">
-          {booksData.map((element) => {
+          {Data.map((element) => {
             return (
               <>
                 <div class="container page-wrapper">
@@ -94,7 +67,7 @@ const Books = () => {
                     <div class="row">
                       <div class="el-wrapper">
                         <div class="box-up">
-                          <img class="img" src={element.images} alt="" />
+                          <img class="img" src={element.image} alt="" />
                           <div class="img-info">
                             <div class="info-inner">
                               <span class="p-name text-info">
@@ -124,7 +97,7 @@ const Books = () => {
                             <span
                               class="add-to-cart btn btn-sm"
                               style={{ backgroundColor: "#3EC1D5" }}
-                              
+                              onClick={()=>{ AddTo(element)}}
                             >
                               <span class="txt">
                                 ADD TO CART <FaShoppingCart />
