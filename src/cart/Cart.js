@@ -15,7 +15,9 @@ const Cart = () => {
   let moveToshop = () => {
     move("/Books");
   };
-
+let checkOutNow=()=>{
+  move("/Checkout")
+}
   return (
     <>
       <div class="container mt-5 mb-5">
@@ -37,9 +39,9 @@ const Cart = () => {
                 return (
                   <>
                     <div class="d-flex flex-row justify-content-between align-items-center p-2 bg-white mt-4 px-3 rounded shadow">
-                      <div class="mr-1 ">
-                        <img class="rounded" src={item.image} width="70" />
-                        <span class="font-weight-bold">{item.name}</span>
+                      <div class="imageandpara ">
+                        <img class="rounded border shadow" src={item.image} width="70" />
+                        <span class="font-weight-bold" style={{fontSize:"10px"}}>{item.name}</span>
                       </div>
                       <div class="d-flex flex-column align-items-center product-details">
                         <div class="d-flex flex-row product-desc"></div>
@@ -71,7 +73,7 @@ const Cart = () => {
                         }$`}</span>
                       </div>
                       <div
-                        class="removeItem bg-danger shadow"
+                        class="removeItem bg-danger "
                         onClick={() => {
                           removeItem(item);
                         }}
@@ -132,6 +134,7 @@ const Cart = () => {
                 class="btn  btn-block btn-sm ml-2 pay-button shadow"
                 type="button"
                 style={{ backgroundColor: "#3EC1D5" }}
+                onClick={checkOutNow}
               >
                 Proceed to Pay
               </button>

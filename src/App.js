@@ -11,7 +11,7 @@ import Error from "./Error";
 import Main from "./Main";
 import Single from "./Single";
 import Cart from "./cart/Cart";
-
+import Checkout from "./Checkout";
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +27,7 @@ function App() {
           <Route path="/videos/:name" element={<Videos />} />
           <Route path="/videos/:name" element={<Videos />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/Checkout" element={<Checkout />} />
         </Route>
         <Route path="*" element={<Error />} />
       </Routes>

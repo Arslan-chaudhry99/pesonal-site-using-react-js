@@ -315,3 +315,18 @@ body {
   background-color: rgb(62, 193, 213);
   cursor: pointer;
 }
+.messageAli{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.messageAli span{
+  background-color: #d4edda;
+  
+}
+.viewNow{
+  text-decoration: underline;
+  cursor: pointer;
+  
+}

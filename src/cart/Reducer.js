@@ -12,8 +12,7 @@ const reducer = (state, action) => {
     } else {
       state = [...state, { ...action.payload, quantity: 1 }];
     }
-  } 
-  else if (action.type === "remove_Item") {
+  } else if (action.type === "remove_Item") {
     // remove items
 
     if (action.payload) {
@@ -23,7 +22,7 @@ const reducer = (state, action) => {
     }
   }
   // increment items
-  else if(action.type === "INCREMENT"){
+  else if (action.type === "INCREMENT") {
     state = state.map((item) => {
       return item.id === action.payload.id
         ? { ...action.payload, quantity: action.payload.quantity + 1 }
@@ -31,16 +30,22 @@ const reducer = (state, action) => {
     });
   }
   // decrement
-  else if(action.type === "DECREMENT"){
+  else if (action.type === "DECREMENT") {
     state = state.map((item) => {
       return item.id === action.payload.id
-        ? { ...action.payload, quantity: action.payload.quantity === 1 ? action.payload.quantity =1:action.payload.quantity -1 }
+        ? {
+            ...action.payload,
+            quantity:
+              action.payload.quantity === 1
+                ? (action.payload.quantity = 1)
+                : action.payload.quantity - 1,
+          }
         : item;
     });
   }
   // clear all
-  else if(action.type === "ClearAll"){
-    state = []
+  else if (action.type === "ClearAll") {
+    state = [];
   }
   return state;
 };

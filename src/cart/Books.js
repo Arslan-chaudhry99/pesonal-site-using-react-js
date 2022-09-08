@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "./context";
 import Data from "./Data";
 const Books = () => {
-  const {AddTo} = useContext(AppContext);
+  const { AddTo } = useContext(AppContext);
   let nav = useNavigate();
   // slider
   const responsive = {
@@ -31,7 +31,16 @@ const Books = () => {
     },
   };
   let croser = useRef("");
-  let loding = useRef("");
+  let popMessage = useRef("");
+let showNotification=()=>{
+  popMessage.current.style.display="flex"
+  setTimeout(() => {
+    popMessage.current.style.display="none"
+  }, 5000);
+}
+let viewcart=()=>{
+  nav("/cart")
+}
 
   // go to cart button
   const goto = () => {
@@ -48,9 +57,14 @@ const Books = () => {
         </div>
       </div>
 
-      <div className="lodingBooks" ref={loding}>
-        <div class="spinner-border" role="status"></div>
-        <h4>Please wait....</h4>
+      <div
+        class="toast-body  w-100 messageAli"
+        style={{ position: "absolute", zIndex: "1",display:"none"}}
+        ref={popMessage}
+      >
+       <span className="border p-2 text-dark border">Item is successfully add to cart. 
+       <span className="viewNow" onClick={viewcart}>click here to view!</span>
+        </span>
       </div>
 
       <div ref={croser}>
@@ -81,27 +95,31 @@ const Books = () => {
                             </div>
                           </div>
                         </div>
-                        <input
-                          type="text"
-                          value={1}
-                          style={{ display: "none" }}
-                        />
+                       
                         <div class="box-down">
                           <div class="h-bg">
                             <div class="h-bg-inner"></div>
                           </div>
 
-                          <a class="cart">
+                          <a class="cart"
+                          
+                          >
                             <span class="price">{element.price + "$"}</span>
-
+                            <span  onClick={showNotification}>
                             <span
                               class="add-to-cart btn btn-sm"
                               style={{ backgroundColor: "#3EC1D5" }}
-                              onClick={()=>{ AddTo(element)}}
+                              onClick={() => {
+                                AddTo(element)
+                              }}
+                              
                             >
-                              <span class="txt">
+                              <span class="txt"
+                             
+                              >
                                 ADD TO CART <FaShoppingCart />
                               </span>
+                            </span>
                             </span>
                           </a>
                         </div>

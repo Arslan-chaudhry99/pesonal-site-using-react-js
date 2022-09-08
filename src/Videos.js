@@ -78,11 +78,11 @@ function Videos() {
                   </div>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-4">
+              <div className="col-lg-4 col-md-4 ">
                 <div className="page-head-blog">
                   <div className="single-blog-page">
                     <div
-                      className="left-blog"
+                      className="left-blog border"
                       style={{ height: "500px", overflowY: "scroll" }}
                     >
                       <h4>Play List</h4>
