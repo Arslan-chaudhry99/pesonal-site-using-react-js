@@ -1,7 +1,7 @@
 import "./components/style.css";
-import { FaFacebook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaStackOverflow } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 function Footer() {
   return (
@@ -30,22 +30,22 @@ function Footer() {
                     <div className="footer-icons">
                       <ul>
                         <li>
-                          <a href="#">
-                            <FaFacebook />
+                          <a href="https://github.com/Arslan-chaudhry99">
+                            <FaGithub />
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://www.instagram.com/lets_go_to_online/">
                             <FaInstagram />
                           </a>
                         </li>
                         <li>
-                          <a href="#">
-                            <FaTwitter />
+                          <a href="https://stackoverflow.com/users/16726871/arslan-chaudhry">
+                            <FaStackOverflow />
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://www.linkedin.com/in/arslan-chaudhry-a56aaa219/">
                             <FaLinkedin />
                           </a>
                         </li>
@@ -80,22 +80,22 @@ function Footer() {
                   <div className="footer-head">
                     <h4>Instagram</h4>
                     <div className="flicker-img">
-                      <a href="#">
+                      <a >
                         <img src="./images/coursesimg/1.png" alt="" />
                       </a>
-                      <a href="#">
+                      <a >
                         <img src="./images/coursesimg/2.png" alt="" />
                       </a>
-                      <a href="#">
+                      <a >
                         <img src="./images/coursesimg/3.png" alt="" />
                       </a>
-                      <a href="#">
+                      <a >
                         <img src="./images/coursesimg/4.png" alt="" />
                       </a>
-                      <a href="#">
+                      <a >
                         <img src="./images/coursesimg/5.png" alt="" />
                       </a>
-                      <a href="#">
+                      <a >
                         <img src="./images/coursesimg/6.png" alt="" />
                       </a>
                     </div>
@@ -116,7 +116,7 @@ function Footer() {
                   </p>
                 </div>
                 <div className="credits">
-                  Designed by <a href="#">Arslan Chaudhry</a>
+                  Designed by <a href="https://www.instagram.com/lets_go_to_online/">Arslan Chaudhry</a>
                 </div>
               </div>
             </div>

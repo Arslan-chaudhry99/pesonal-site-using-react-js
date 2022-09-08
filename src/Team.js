@@ -1,7 +1,7 @@
 import "./components/style.css";
-import { FaFacebook } from "react-icons/fa";
+import { FaGithub  } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaLinkedin  } from "react-icons/fa";
 function Team() {
   const team = [
     {
@@ -57,23 +57,23 @@ function Team() {
                   <div key={index} className="col-md-3 col-sm-3 col-xs-12">
                     <div className="single-team-member">
                       <div className="team-img">
-                        <a href="#">
+                        <a >
                           <img src={img} alt="" key={index} />
                         </a>
                         <div className="team-social-icon text-center">
                           <ul>
                             <li>
-                              <a href="#">
-                                <FaFacebook />
+                              <a href="https://github.com/Arslan-chaudhry99">
+                                <FaGithub />
                               </a>
                             </li>
                             <li>
-                              <a href="#">
-                                <FaTwitter />
+                              <a href="https://www.linkedin.com/in/arslan-chaudhry-a56aaa219/">
+                                <FaLinkedin />
                               </a>
                             </li>
                             <li>
-                              <a href="#">
+                              <a href="https://www.instagram.com/lets_go_to_online/">
                                 <FaInstagram />
                               </a>
                             </li>

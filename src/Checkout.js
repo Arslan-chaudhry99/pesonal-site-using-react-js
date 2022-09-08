@@ -33,7 +33,7 @@ const Checkout = () => {
                           justifyContent: "space-between",
                         }}
                       >
-                          <p class="item-name">{item.name}<span class="badge ml-2 rounded-pill text-white" style={{backgroundColor:'rgb(62, 193, 213)'}}>{`${item.quantity} Items`}</span></p>
+                          <p class="item-name">{item.name}<span class="badge ml-2 rounded-pill text-white shadow" style={{backgroundColor:'rgb(62, 193, 213)'}}>{`${item.quantity} Items`}</span></p>
                         <span class="price">{item.price * item.quantity}$</span>
                       </div>
                     </>
@@ -110,6 +110,7 @@ const Checkout = () => {
                         backgroundColor: "rgb(62, 193, 213)",
                         border: "none",
                       }}
+                      onClick={()=>{alert("we will add buy feature soon")}}
                     >
                       Proceed
                     </button>

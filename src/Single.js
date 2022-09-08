@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import "./components/style.css";
 import { useRef } from "react";
-import { FaFacebook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaStackOverflow } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaCopy } from "react-icons/fa";
 const Single = () => {
@@ -71,34 +71,26 @@ const Single = () => {
                         {content.description}
                       </p>
                     </section>
-                    <div
-                      className="footer-icons"
-                      style={{ margin: "0px 0px 20px 0px" }}
-                    >
+                    <div className="footer-icons">
                       <ul>
                         <li>
-                          <a href="#">
-                            <FaFacebook />
+                          <a href="https://github.com/Arslan-chaudhry99">
+                            <FaGithub />
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://www.instagram.com/lets_go_to_online/">
                             <FaInstagram />
                           </a>
                         </li>
                         <li>
-                          <a href="#">
-                            <FaTwitter />
+                          <a href="https://stackoverflow.com/users/16726871/arslan-chaudhry">
+                            <FaStackOverflow />
                           </a>
                         </li>
                         <li>
-                          <a href="#">
+                          <a href="https://www.linkedin.com/in/arslan-chaudhry-a56aaa219/">
                             <FaLinkedin />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <FaCopy />
                           </a>
                         </li>
                       </ul>
