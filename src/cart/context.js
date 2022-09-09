@@ -1,9 +1,11 @@
 import React, { createContext, useEffect } from "react";
-import Data from "./Data";
+
 import { useReducer } from "react";
 import reducer from "./Reducer";
-import Books from "./Books";
+
+
 const AppContext = createContext();
+const ProductContext=createContext();
 const AppProvider = ({ children }) => {
   let getFromStore = () => {
     let localData = localStorage.getItem("product");
@@ -14,7 +16,8 @@ const AppProvider = ({ children }) => {
     }
   };
   const [state, dispatch] = useReducer(reducer, getFromStore());
-
+ 
+  
   const AddTo = (obj) => {
     dispatch({
       type: "Add_to_cart",
@@ -52,10 +55,12 @@ const AppProvider = ({ children }) => {
   return (
     <>
       <AppContext.Provider value={{ state, removeItem, AddTo, increment,decrement,clearAll }}>
+     
         {children}
+        
       </AppContext.Provider>
     </>
   );
 };
 
-export { AppContext, AppProvider };
+export { AppContext, AppProvider, ProductContext };

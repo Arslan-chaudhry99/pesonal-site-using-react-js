@@ -9,7 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "./context";
 import Data from "./Data";
 const Books = () => {
-  const { AddTo } = useContext(AppContext);
+  const { AddTo, state } = useContext(AppContext);
+  
+  
   let nav = useNavigate();
   // slider
   const responsive = {
@@ -32,15 +34,15 @@ const Books = () => {
   };
   let croser = useRef("");
   let popMessage = useRef("");
-let showNotification=()=>{
-  popMessage.current.style.display="flex"
-  setTimeout(() => {
-    popMessage.current.style.display="none"
-  }, 5000);
-}
-let viewcart=()=>{
-  nav("/cart")
-}
+  let showNotification = () => {
+    popMessage.current.style.display = "flex";
+    setTimeout(() => {
+      popMessage.current.style.display = "none";
+    }, 5000);
+  };
+  let viewcart = () => {
+    nav("/cart");
+  };
 
   // go to cart button
   const goto = () => {
@@ -59,21 +61,28 @@ let viewcart=()=>{
 
       <div
         class="toast-body  w-100 messageAli"
-        style={{ position: "absolute", zIndex: "1",display:"none"}}
+        style={{ position: "absolute", zIndex: "1", display: "none" }}
         ref={popMessage}
       >
-       <span className="border p-2 text-dark border">Item is successfully add to cart. 
-       <span className="viewNow" onClick={viewcart}>click here to view!</span>
+        <span className="border p-2 text-dark border">
+          Item is successfully add to cart.
+          <span className="viewNow" onClick={viewcart}>
+            click here to view!
+          </span>
         </span>
       </div>
 
       <div ref={croser}>
         <div className=" shadow go_to_cart" onClick={goto}>
-          <i class="bi bi-cart-check text-white"></i>
+          <i
+            class="bi bi-cart-check text-white "
+            style={{ fontSize: "15px" }}
+          ></i>
+          <i className="quan bg-danger">{state.length}</i>
         </div>
 
         <Carousel responsive={responsive} className="container">
-          {Data.map((element) => {
+          {Data.map((element,index) => {
             return (
               <>
                 <div class="container page-wrapper">
@@ -95,31 +104,26 @@ let viewcart=()=>{
                             </div>
                           </div>
                         </div>
-                       
+
                         <div class="box-down">
                           <div class="h-bg">
                             <div class="h-bg-inner"></div>
                           </div>
-
-                          <a class="cart"
-                          
-                          >
+                          <a class="cart">
+                            
                             <span class="price">{element.price + "$"}</span>
-                            <span  onClick={showNotification}>
-                            <span
-                              class="add-to-cart btn btn-sm"
-                              style={{ backgroundColor: "#3EC1D5" }}
-                              onClick={() => {
-                                AddTo(element)
-                              }}
-                              
-                            >
-                              <span class="txt"
-                             
+                            <span onClick={showNotification}>
+                              <span
+                                class="add-to-cart btn btn-lg"
+                                style={{ backgroundColor: "#3EC1D5" }}
+                                onClick={() => {
+                                  AddTo(element);
+                                }}
                               >
-                                ADD TO CART <FaShoppingCart />
+                                <span class="txt">
+                                  ADD TO CART <FaShoppingCart />
+                                </span>
                               </span>
-                            </span>
                             </span>
                           </a>
                         </div>

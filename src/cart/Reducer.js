@@ -4,15 +4,19 @@ const reducer = (state, action) => {
       return e.id === action.payload.id;
     });
     if (filtredState) {
+      
       state = state.map((item) => {
         return item.id === filtredState.id
           ? { ...filtredState, quantity: filtredState.quantity + 1 }
           : item;
       });
     } else {
-      state = [...state, { ...action.payload, quantity: 1 }];
+      state = [...state, { ...action.payload, quantity: 1,cart:false }];
     }
-  } else if (action.type === "remove_Item") {
+    
+  }
+  
+   else if (action.type === "remove_Item") {
     // remove items
 
     if (action.payload) {
