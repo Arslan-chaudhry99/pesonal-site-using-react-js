@@ -55,9 +55,7 @@ const AppProvider = ({ children }) => {
   return (
     <>
       <AppContext.Provider value={{ state, removeItem, AddTo, increment,decrement,clearAll }}>
-     
         {children}
-        
       </AppContext.Provider>
     </>
   );

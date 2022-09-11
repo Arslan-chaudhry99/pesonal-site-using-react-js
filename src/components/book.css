@@ -303,7 +303,7 @@ body {
 
 .go_to_cart {
   position: absolute;
-  right: 8%;
+  right: 7%;
   z-index: 99;
   width: 45px;
   height: 45px;
@@ -318,9 +318,9 @@ body {
 .quan{
   color: white;
   
-  width: 23px;
-  height: 23px;
-  background-color: red;
+  width: 10px;
+  height: 10px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -346,4 +346,10 @@ body {
   text-decoration: underline;
   cursor: pointer;
   
+}
+.cart .add-to-cart-align{
+  display: flex;
+ 
+  align-items: center;
+  color: white;
 }

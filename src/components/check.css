@@ -54,7 +54,7 @@
 }
 
 .payment-form .products {
-           
+
            padding: 25px;
 }
 
@@ -139,7 +139,38 @@
                       margin-top: 2em;
            }
 }
-.goToline{
+
+.goToline {
+           text-decoration: underline;
+           cursor: pointer;
+}
+
+.checkout-images {
+           width: 60px;
+}
+
+.checkout-images img {
+           object-fit: cover;
+}
+.checkOut-edit{
+           width: 150px;
+           height: 150px;
+           background-color: red;
+}
+.checkOut-edit img{
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+}
+.edit-checkout-prodct{
+           display: flex;
+           flex-direction: column;
+}
+.checkpara{
+           font-weight: 500;
+}
+.deleteChecks{
+           margin-top: 4px;
            text-decoration: underline;
            cursor: pointer;
 }

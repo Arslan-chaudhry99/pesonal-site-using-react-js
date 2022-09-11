@@ -3,17 +3,18 @@ import "./components/check.css";
 import { AppContext } from "./cart/context";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 const Checkout = () => {
-  const { state } = useContext(AppContext);
+  const { state, increment, decrement ,removeItem} = useContext(AppContext);
   let data = 0;
   state.map((item) => {
     return (data += item.price * item.quantity);
   });
-  let nav=useNavigate("")
-  let goto=()=>{
-    nav("/Books")
-  }
+  let nav = useNavigate("");
+  let goto = () => {
+    nav("/Books");
+  };
+
   return (
     <>
       <main class="page payment-page mt-4 shadow">
@@ -22,25 +23,69 @@ const Checkout = () => {
             <form>
               <div class="products">
                 <h3 class="title">Checkout</h3>
-                { state.length !== 0 ? state.map((item) => {
-                  return (
-                    <>
-                      <div
-                        class="item border p-2 shadow"
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                          <p class="item-name">{item.name}<span class="badge ml-2 rounded-pill text-white shadow" style={{backgroundColor:'rgb(62, 193, 213)'}}>{`${item.quantity} Items`}</span></p>
-                        <span class="price">{item.price * item.quantity}$</span>
-                      </div>
-                    </>
-                  );
-                }):<div class="alert alert-danger" role="alert">
-                No Item avavilable now.To Checkout please add items. <span className="text-dark goToline" onClick={goto}>click here to add</span>
-              </div>}
+                {state.length !== 0 ? (
+                  state.map((item) => {
+                    return (
+                      <>
+                        <div
+                          class="item border p-1 shadow "
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                          }}
+                        >
+                          <span className="checkout-images checkOut-edit">
+                            <img src={item.image} alt="product image" />
+                          </span>
+                          <span className="edit-checkout-prodct">
+                            <span class="item-name">
+                              <strong>Product Name: </strong>
+                              <span className="checkpara">{item.name}</span>
+                            </span>
+                            <span class="item-name">
+                              <strong>Price: </strong>
+                              <span className="checkpara">{item.price}$</span>
+                            </span>
+                            <span class="item-name">
+                              <strong>Quantity: </strong>
+                              <span className="checkpara">{item.quantity}</span>
+                            </span>
+                            <div class="d-flex flex-row align-items-center qty mt-1">
+                              <i
+                                class="minusSign border ml-0 "
+                                onClick={() => {
+                                  decrement(item);
+                                }}
+                              >
+                                <i class="bi bi-dash"></i>
+                              </i>
+                              <span class="text-grey quantityNumber border px-3">
+                                {item.quantity}
+                              </span>
+                              <i
+                                class="minusSign  border"
+                                onClick={() => {
+                                  increment(item);
+                                }}
+                              >
+                                <i class="bi bi-plus"></i>
+                              </i>
+                             
+                            </div>
+                            <span className="deleteChecks text-danger" onClick={()=>{removeItem(item)}}>Delete</span>
+                          </span>
+                        </div>
+                      </>
+                    );
+                  })
+                ) : (
+                  <div class="alert alert-danger" role="alert">
+                    No Item avavilable now.To Checkout please add items.{" "}
+                    <span className="text-dark goToline" onClick={goto}>
+                      click here to add
+                    </span>
+                  </div>
+                )}
 
                 <div class="total">
                   Total<span class="price">{`${data}$`}</span>
@@ -110,7 +155,9 @@ const Checkout = () => {
                         backgroundColor: "rgb(62, 193, 213)",
                         border: "none",
                       }}
-                      onClick={()=>{alert("we will add buy feature soon")}}
+                      onClick={() => {
+                        alert("we will add buy feature soon");
+                      }}
                     >
                       Proceed
                     </button>

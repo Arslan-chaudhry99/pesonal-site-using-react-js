@@ -8,10 +8,10 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "./context";
 import Data from "./Data";
+import { padding } from "@mui/system";
 const Books = () => {
   const { AddTo, state } = useContext(AppContext);
-  
-  
+
   let nav = useNavigate();
   // slider
   const responsive = {
@@ -48,6 +48,10 @@ const Books = () => {
   const goto = () => {
     nav("/Cart");
   };
+  let actualLength=0
+state.map((item)=>{
+  actualLength += item.quantity
+})
 
   return (
     <>
@@ -76,13 +80,13 @@ const Books = () => {
         <div className=" shadow go_to_cart" onClick={goto}>
           <i
             class="bi bi-cart-check text-white "
-            style={{ fontSize: "15px" }}
+            style={{ fontSize: "20px" }}
           ></i>
-          <i className="quan bg-danger">{state.length}</i>
+          <i className="quan bg-danger" style={{fontSize:"10px",padding:"10px"}}>{actualLength}</i>
         </div>
 
         <Carousel responsive={responsive} className="container">
-          {Data.map((element,index) => {
+          {Data.map((element, index) => {
             return (
               <>
                 <div class="container page-wrapper">
@@ -109,19 +113,22 @@ const Books = () => {
                           <div class="h-bg">
                             <div class="h-bg-inner"></div>
                           </div>
-                          <a class="cart">
-                            
+                          <a class="cart " >
                             <span class="price">{element.price + "$"}</span>
-                            <span onClick={showNotification}>
+                            <span
+                              className="add-to-cart add-to-cart-align "
+                              onClick={showNotification}
+                            >
                               <span
-                                class="add-to-cart btn btn-lg"
+                                class=" btn btn-lg "
                                 style={{ backgroundColor: "#3EC1D5" }}
                                 onClick={() => {
-                                  AddTo(element);
+                                  AddTo(element)
+                                  
                                 }}
                               >
-                                <span class="txt">
-                                  ADD TO CART <FaShoppingCart />
+                                <span class="txt " >
+                                  ADD TO CART <FaShoppingCart  />
                                 </span>
                               </span>
                             </span>
